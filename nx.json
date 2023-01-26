@@ -6,15 +6,10 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "nx/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e",
-          "build-storybook"
-        ]
+        "cacheableOperations": ["build", "lint", "test", "e2e", "build-storybook"],
+        "accessToken": "ZTJiZTMwYzUtZDNkOC00NTY4LTkxODAtNzQyNTA0MTEyOTdkfHJlYWQtd3JpdGU="
       }
     }
   },
@@ -33,12 +28,7 @@
       "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
     },
     "build-storybook": {
-      "inputs": [
-        "default",
-        "^production",
-        "{workspaceRoot}/.storybook/**/*",
-        "{workspaceRoot}/.storybook/**/*"
-      ]
+      "inputs": ["default", "^production", "{workspaceRoot}/.storybook/**/*", "{workspaceRoot}/.storybook/**/*"]
     }
   },
   "namedInputs": {
