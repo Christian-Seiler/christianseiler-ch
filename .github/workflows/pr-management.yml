@@ -10,10 +10,11 @@ on:
 env:
   PR: ${{ github.event.pr.html_url }}
   GH_TOKEN: ${{ github.token }}
+  GH_REPO: ${{ Christian-Seiler/christianseiler.ch }}
 
 jobs:
   manage-issue:
     runs-on: ubuntu-latest
     steps:
       - name: Add Reviewer
-        run: gh pr edit $PR --add-reviewer Christian-Seiler
+        run: gh pr edit $PR --add-reviewer Christian-Seiler --repo $GH_REPO
