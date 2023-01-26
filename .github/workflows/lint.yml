@@ -1,0 +1,31 @@
+name: Lint
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches:
+      - main
+
+jobs:
+  lint:
+    name: Linting
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        projects:
+          - website
+          - components
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Lint ${{ matrix.project }}
+        with:
+          projects: ${{ matrix.project }}
+        run: yarn nx run @cs/${{ project }}:lint:ci

@@ -1,9 +1,9 @@
 {
-  "name": "components",
+  "name": "@cs/components",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/components/src",
-  "prefix": "",
+  "prefix": "cs",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
@@ -44,6 +44,12 @@
           "libs/components/**/*.ts",
           "libs/components/**/*.html"
         ]
+      },
+      "configurations": {
+        "ci": {
+          "format": "@microsoft/eslint-formatter-sarif",
+          "outputFile": "components.lint.sarif"
+        }
       }
     },
     "storybook": {
